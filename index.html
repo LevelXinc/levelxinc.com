@@ -1,0 +1,199 @@
+---
+layout: default
+title: Level X — Thoughtful apps for kids and families
+description: A small independent studio building calm, careful mobile apps for kids and families. Meet Pausely, with Prevail and OffMyMind on the way.
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal">Independent app studio &middot; for kids &amp; families</p>
+    <h1 class="reveal">Small studio.<br><span class="grad-text">Careful apps</span> for the people you love.</h1>
+    <p class="lede reveal">Level X builds calm, well-made mobile apps that help families slow down, show up for each other, and feel a little more present — one small moment at a time.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#apps">Meet our apps <span class="arr">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#studio">About the studio</a>
+    </div>
+    <div class="trust reveal">
+      <span><i class="dot"></i> Privacy-first by design</span>
+      <span><i class="dot"></i> Built for Google Play Families</span>
+      <span><i class="dot"></i> Made solo, with care</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The portfolio</p>
+      <h2>Three apps, one idea: help families be present.</h2>
+      <p>Each app takes on a different part of family life — calm, consistency, and connection — but they all share the same quiet, careful approach.</p>
+    </div>
+    <div class="apps">
+      <article class="app-card featured reveal" style="--c: var(--pausely)">
+        <span class="accent-bar"></span>
+        <div class="app-top">
+          <img class="app-icon" src="{{ '/assets/img/pausely-logo.png' | relative_url }}" alt="Pausely app icon" width="112" height="112">
+          <div class="app-name">Pausely</div>
+          <span class="pill live">&#9679; Live soon on Google Play</span>
+        </div>
+        <p>A mindfulness app for kids and families. Pausely offers short, guided moments to pause, breathe, and reset together — whether it's a morning that's gone sideways or the wind-down before bed. Simple enough for little ones, calming enough for the grown-ups too.</p>
+        <div class="meta">Mindfulness &amp; wellness &middot; Ages 4+ &middot; Family-friendly</div>
+      </article>
+      <article class="app-card reveal" style="--c: var(--prevail)">
+        <span class="accent-bar"></span>
+        <div class="app-top">
+          <div class="app-mark" style="background: var(--prevail)">P</div>
+          <div class="app-name">Prevail</div>
+          <span class="pill">Coming soon</span>
+        </div>
+        <p>Gentle, forgiving habit-building for people who want to show up for themselves — without the guilt when life gets in the way.</p>
+        <div class="meta">Habits &amp; productivity</div>
+      </article>
+      <article class="app-card reveal" style="--c: var(--offmymind)">
+        <span class="accent-bar"></span>
+        <div class="app-top">
+          <div class="app-mark" style="background: var(--offmymind)">O</div>
+          <div class="app-name">OffMyMind</div>
+          <span class="pill">Coming soon</span>
+        </div>
+        <p>A quieter space for couples to share what's on their mind, stay close, and work through the small things before they become big ones.</p>
+        <div class="meta">Relationships &amp; connection</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section class="section" id="studio">
+  <div class="wrap studio-grid">
+    <div class="manifesto reveal">
+      <p class="eyebrow">The studio</p>
+      <h2 style="font-size: clamp(28px,4.4vw,40px); margin-top:12px;">A studio of one, building like it matters.</h2>
+      <p class="lead">Level X is an independent app studio. No growth-at-all-costs playbook, no dark patterns, no selling attention back to families. Just small, deliberate apps made by someone who actually uses them.</p>
+      <p>Every app starts from a real moment in family life — a tense morning, a habit that won't stick, a conversation that keeps getting put off — and tries to make it a little softer. If a feature doesn't earn its place, it doesn't ship.</p>
+    </div>
+    <div class="values reveal">
+      <div class="value"><span class="vnum">01</span><div><h3>Families come first</h3><p>Designed for kids and parents to use together, with nothing that needs a grown-up to feel uneasy.</p></div></div>
+      <div class="value"><span class="vnum">02</span><div><h3>Privacy is the default</h3><p>Built around Google Play Families and COPPA guidance. No surprise tracking, no data sold, ever.</p></div></div>
+      <div class="value"><span class="vnum">03</span><div><h3>Calm over clever</h3><p>Quiet interfaces, no manipulative streaks or guilt loops. The app should leave you feeling better, not hooked.</p></div></div>
+      <div class="value"><span class="vnum">04</span><div><h3>Made with care</h3><p>Crafted solo, shipped slowly, and supported by a real person who reads every email.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING / BLOG TEASER -->
+<section class="section" id="writing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Notes</p>
+      <h2>Notes from the studio.</h2>
+      <p>Small essays on calm technology, building for families, and what we're learning along the way.</p>
+    </div>
+    <div class="post-list reveal">
+      {% for post in site.posts limit: 4 %}
+      <a class="post-row" href="{{ post.url | relative_url }}">
+        <span class="pr-title">{{ post.title }}</span>
+        <span class="pr-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        {% if post.description %}<span class="pr-excerpt">{{ post.description }}</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+    <div class="blog-more reveal"><a class="btn btn-ghost" href="{{ '/blog/' | relative_url }}">Read the notes <span class="arr">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Good to know</p>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq reveal" style="max-width:760px;">
+      <details open><summary>What is Level X? <span class="ic" aria-hidden="true"></span></summary><div class="ans">Level X is a small independent app studio that builds calm, careful mobile apps for kids and families. Its first app is Pausely, a mindfulness app, with Prevail and OffMyMind in development.</div></details>
+      <details><summary>Are your apps safe for kids? <span class="ic" aria-hidden="true"></span></summary><div class="ans">Yes. Level X designs for families first. Apps are built to be privacy-first and follow Google Play Families and COPPA guidance — no surprise data collection, no advertising aimed at children, and nothing sold to third parties.</div></details>
+      <details><summary>What is Pausely? <span class="ic" aria-hidden="true"></span></summary><div class="ans">Pausely is a mindfulness app for kids and families. It offers short, guided moments to pause, breathe, and reset together during a busy day — gentle enough for young children and useful for parents too.</div></details>
+      <details><summary>When are Prevail and OffMyMind launching? <span class="ic" aria-hidden="true"></span></summary><div class="ans">Both are in active development. Prevail focuses on forgiving habit-building, and OffMyMind is a space for couples to stay connected. Email us to hear when they're ready.</div></details>
+      <details><summary>How do I get in touch? <span class="ic" aria-hidden="true"></span></summary><div class="ans">Use the <a class="grad-text" href="#contact" style="font-weight:600;">contact form</a> on this page — a real person reads every message.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="border-top:0;">
+  <div class="wrap contact-wrap">
+    <div class="section-head reveal" style="margin-bottom:30px;">
+      <p class="eyebrow">Contact</p>
+      <h2>Say hello.</h2>
+      <p>Questions, ideas, or want to know when an app ships? Send a note — a real person reads every message.</p>
+    </div>
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="cf-email">Email <span style="color:var(--muted);font-weight:400;">(so we can reply)</span></label>
+        <input id="cf-email" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+      </div>
+      <!-- honeypot: hidden from people, catches bots -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+      <input type="hidden" name="_subject" value="New message from levelxinc.com">
+      <button class="btn btn-primary" type="submit">Send message <span class="arr">&rarr;</span></button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var f = document.getElementById('contactForm');
+    if (!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var status = document.getElementById('formStatus');
+      status.textContent = 'Sending…'; status.className = 'form-status';
+      fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+        .then(function(r){
+          if (r.ok) { f.reset(); status.textContent = 'Thanks — your message is on its way.'; status.className = 'form-status ok'; }
+          else { status.textContent = 'Something went wrong. Please try again in a moment.'; status.className = 'form-status err'; }
+        })
+        .catch(function(){ status.textContent = 'Something went wrong. Please try again in a moment.'; status.className = 'form-status err'; });
+    });
+  })();
+</script>
+
+<!-- FAQ structured data (home only) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Level X?", "acceptedAnswer": { "@type": "Answer", "text": "Level X is a small independent app studio that builds calm, careful mobile apps for kids and families. Its first app is Pausely, a mindfulness app, with Prevail and OffMyMind in development." } },
+    { "@type": "Question", "name": "Are Level X apps safe for kids?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Level X designs for families first. Apps are built to be privacy-first and follow Google Play Families and COPPA guidance, with no surprise data collection." } },
+    { "@type": "Question", "name": "What is Pausely?", "acceptedAnswer": { "@type": "Answer", "text": "Pausely is a mindfulness app for kids and families that offers short, guided moments to pause, breathe, and reset together during a busy day." } },
+    { "@type": "Question", "name": "How do I contact Level X?", "acceptedAnswer": { "@type": "Answer", "text": "You can reach Level X through the contact form at levelxinc.com." } }
+  ]
+}
+</script>
+
+<style>
+/* FAQ disclosure (scoped, used on home) */
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { list-style:none; cursor:pointer; padding:22px 0; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:"Space Grotesk",sans-serif; font-weight:500; font-size:19px; color:var(--ink); }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary .ic { flex:none; width:22px; height:22px; position:relative; }
+.faq summary .ic::before, .faq summary .ic::after { content:""; position:absolute; background:var(--ink-soft); border-radius:2px; }
+.faq summary .ic::before { left:0; right:0; top:10px; height:2px; }
+.faq summary .ic::after { top:0; bottom:0; left:10px; width:2px; transition:transform .25s var(--ease); }
+.faq details[open] summary .ic::after { transform:scaleY(0); }
+.faq .ans { padding:0 0 24px; color:var(--ink-soft); max-width:640px; }
+</style>

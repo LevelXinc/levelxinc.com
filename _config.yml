@@ -1,0 +1,31 @@
+title: Level X
+tagline: Thoughtful apps for kids and families
+description: >-
+  Level X is a small independent app studio building calm, careful mobile apps
+  for kids and families — starting with Pausely, a mindfulness app for families.
+url: https://levelxinc.com
+baseurl: ""
+lang: en
+author:
+  name: Level X
+logo: /assets/img/logo-mark.svg
+image: /og-image.png
+
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: /feed.xml
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

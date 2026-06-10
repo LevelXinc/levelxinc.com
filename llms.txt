@@ -1,0 +1,33 @@
+# Level X
+
+> Level X is a small independent mobile app studio building calm, careful apps
+> for kids and families. Operated as Level X Consulting LLC.
+
+Contact: https://levelxinc.com/#contact (contact form)
+Website: https://levelxinc.com
+
+## Apps
+
+- Pausely: A mindfulness app for kids and families offering short, guided
+  moments to pause, breathe, and reset together. Launching on Google Play.
+  Category: mindfulness & wellness. Family-friendly, ages 4+.
+- Prevail (in development): Gentle, forgiving habit-building. Category:
+  habits & productivity.
+- OffMyMind (in development): A calm space for couples to stay connected.
+  Category: relationships & connection.
+
+## How Level X works
+
+- Independent studio, built and run solo.
+- Privacy-first: follows Google Play Families and COPPA guidance. No data sold,
+  no advertising aimed at children, no manipulative engagement patterns.
+- Every app starts from a real moment in family life and aims to make it calmer.
+
+## Writing
+
+- The Level X blog publishes short essays on calm technology and building for
+  families: https://levelxinc.com/blog/
+
+## Policies
+
+- Privacy policy and other policies: https://levelxinc.github.io/

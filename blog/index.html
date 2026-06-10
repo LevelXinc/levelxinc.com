@@ -1,0 +1,24 @@
+---
+layout: page
+title: Notes — Level X
+description: Small essays from Level X on calm technology, building apps for families, and what we're learning along the way.
+permalink: /blog/
+---
+<section class="section" style="border-top:0; padding-top:72px;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Notes</p>
+      <h2>Notes from the studio.</h2>
+      <p>Small essays on calm technology, building for families, and what we're learning along the way.</p>
+    </div>
+    <div class="post-list reveal">
+      {% for post in site.posts %}
+      <a class="post-row" href="{{ post.url | relative_url }}">
+        <span class="pr-title">{{ post.title }}</span>
+        <span class="pr-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        {% if post.description %}<span class="pr-excerpt">{{ post.description }}</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
