@@ -952,13 +952,13 @@ document.documentElement.classList.add('no-loader');
 <script>
 /* ===== Edit these two links ===== */
 window.LX_CONFIG = {
-  webhook: "",   // your n8n Production webhook URL (POST)
-  booking: "",   // your Google Calendar appointment schedule link
+  webhook: "https://raed0naire.app.n8n.cloud/webhook/levelx-fit-check",   // n8n: fit check
+  booking: "",   // your Google Calendar appointment schedule link (still to add)
   privacy: "privacy.html",   // link to your privacy policy page (shows in the banner + footer)
   ga4: "",       // Google Analytics 4 ID, e.g. "G-XXXXXXX" (loads only after Analytics consent)
   metaPixel: "",  // Meta Pixel ID (loads only after Marketing consent)
-  turnstileSiteKey: "",  // Cloudflare Turnstile site key (bot check on every form and the AI tools)
-  leakCheckWebhook: ""   // n8n Production URL for the AI leak check workflow
+  turnstileSiteKey: "0x4AAAAAAE7I8i5DYBWrqteY",  // Cloudflare Turnstile site key (public)
+  leakCheckWebhook: "https://raed0naire.app.n8n.cloud/webhook/levelx-leak-check"   // n8n: free AI leak check
 };
 /* Shared Cloudflare Turnstile loader (one script, many widgets) */
 window.LXTS = (function(){
