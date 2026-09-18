@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Level X — find the leak in your customer path</title>
-<meta name="description" content="Level X finds where your business loses customers between interest and a booked job — slow replies, heavy booking forms, missed calls, no follow-up — then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
+<title>Level X | Find the leak in your customer path</title>
+<meta name="description" content="Level X finds where your business loses customers between interest and a booked job, slow replies, heavy booking forms, missed calls, no follow-up. Then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
 <link rel="canonical" href="https://levelxinc.com/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#070A12">
@@ -12,17 +12,17 @@
 <link rel="alternate" type="application/atom+xml" title="Level X blog" href="https://levelxinc.com/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Level X">
-<meta property="og:title" content="Level X — find the leak in your customer path">
-<meta property="og:description" content="Level X finds where your business loses customers between interest and a booked job — slow replies, heavy booking forms, missed calls, no follow-up — then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
+<meta property="og:title" content="Level X | Find the leak in your customer path">
+<meta property="og:description" content="Level X finds where your business loses customers between interest and a booked job, slow replies, heavy booking forms, missed calls, no follow-up. Then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
 <meta property="og:url" content="https://levelxinc.com/">
 <meta property="og:image" content="https://levelxinc.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Level X — find the leak in your customer path">
+<meta property="og:image:alt" content="Level X | Find the leak in your customer path">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Level X — find the leak in your customer path">
-<meta name="twitter:description" content="Level X finds where your business loses customers between interest and a booked job — slow replies, heavy booking forms, missed calls, no follow-up — then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
+<meta name="twitter:title" content="Level X | Find the leak in your customer path">
+<meta name="twitter:description" content="Level X finds where your business loses customers between interest and a booked job, slow replies, heavy booking forms, missed calls, no follow-up. Then builds the systems and AI automation that close the gaps. Run the free AI check on your website.">
 <meta name="twitter:image" content="https://levelxinc.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1282,9 +1282,16 @@ var LXAI=(function(){
     document.getElementById('lk-site').textContent=r.site||'';
     document.getElementById('lk-sum').textContent=r.summary||'';
     document.getElementById('lk-note').textContent=sample?'This is what a result looks like. Real checks run once the site is connected.':(r.cached?(r.message||'We already ran a free check on this. Here is what we found.'):(r.emailed===false?'We couldn\'t email the report this time, but your results are above.':'The full report is on its way to your inbox.'));
-    document.getElementById('lk-leaks').innerHTML=(r.leaks||[]).slice(0,3).map(function(l){ return '<li><b>'+esc(l.title)+'</b>'+esc(l.fix)+'</li>'; }).join('');
-    var numEl=document.getElementById('lk-num'), n=0;
-    (function tick(){ n=Math.min(sc,n+Math.max(1,Math.round(sc/30))); numEl.textContent=n; if(n<sc) requestAnimationFrame(tick); })();
+    document.getElementById('lk-leaks').innerHTML=(r.leaks||[]).slice(0,3).map(function(l){ return '<li><b>'+esc(l.title)+'</b>'+esc(l.cost||l.fix)+'</li>'; }).join('');
+    // Time-based so a backgrounded tab can't freeze the number part way up.
+    var numEl=document.getElementById('lk-num'), t0=0, dur=900;
+    numEl.textContent=sc;
+    (function tick(ts){
+      if(!t0) t0=ts||Date.now();
+      var k=Math.min(1,((ts||Date.now())-t0)/dur);
+      numEl.textContent=Math.round(sc*k);
+      if(k<1 && document.visibilityState==='visible') requestAnimationFrame(tick); else numEl.textContent=sc;
+    })();
   }
   function fail(msg){ stop(); run.hidden=true; form.hidden=false; go.disabled=false; err.textContent=msg; }
 
@@ -1306,9 +1313,9 @@ var LXAI=(function(){
     go.disabled=true; form.hidden=true; run.hidden=false; animate();
     if(!hook){
       setTimeout(function(){ show({score:58,site:(mode==='site'?u.replace(/^https?:\/\//,''):b+', '+ct),summary:'People can find you, but booking takes too many steps on a phone and inquiries have no automatic reply.',leaks:[
-        {title:'Booking is buried',fix:'The book button sits below the fold on mobile. Put one tap-to-book button at the top of every page.'},
-        {title:'Contact form goes quiet',fix:'Nothing confirms a message was received. Add an instant reply that says when you\'ll call back.'},
-        {title:'No reason to come back',fix:'There\'s no follow-up after a visit. A simple review request and rebooking text would help.'}]},true); },6000);
+        {title:'Booking is buried',cost:'The book button sits below the fold on mobile, so people who came to book leave without finding it.'},
+        {title:'Contact form goes quiet',cost:'Nothing confirms a message arrived, so people assume you missed it and call someone else.'},
+        {title:'No reason to come back',cost:'Nothing follows a visit, so repeat business depends on the customer remembering you first.'}]},true); },6000);
       return;
     }
     var gate=LXAI.soft('leak',3,24*3600*1000);

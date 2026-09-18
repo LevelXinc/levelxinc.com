@@ -18,7 +18,7 @@ AI-visibility tactic.
 - Customer path audits: mapping every step from first contact to booked job and
   identifying where people drop out (response time, forms, phone, follow-up,
   scheduling, no-shows).
-- Fix sprints: a fixed-scope paid engagement that implements the fixes —
+- Fix sprints: a fixed-scope paid engagement that implements the fixes,
   intake and booking flows, automated routing and follow-up, reminders,
   CRM setup, reporting.
 - AI automation built on n8n and large language models: lead qualification,
@@ -35,9 +35,9 @@ a paid, fixed-scope sprint rather than an open-ended retainer.
 
 ## Apps
 
-- Pausely — a mindfulness app for kids and families. Live on Google Play.
-- Prevail (in development) — gentle habit building.
-- OffMyMind (in development) — a calm space for couples to stay connected.
+- Pausely. A mindfulness app for kids and families. Live on Google Play.
+- Prevail (in development). Gentle habit building.
+- OffMyMind (in development). A calm space for couples to stay connected.
 
 ## Editorial standard for the Level X blog
 
