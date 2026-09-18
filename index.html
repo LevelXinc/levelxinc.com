@@ -257,6 +257,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
 .opt[aria-pressed="true"] kbd,.opt[aria-checked="true"] kbd{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}
 .fields{display:grid;gap:18px;margin-top:30px}
 .fld label{display:block;font:600 11.5px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fld select{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line2);color:var(--ink);font:500 19px/1.4 var(--body);padding:8px 0 10px;outline:none;border-radius:0;appearance:none}
+.fld select:focus{border-color:var(--cyan)}
+.fld select option{background:var(--panel);color:var(--ink)}
 .fld input,.fld textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line2);color:var(--ink);font:500 19px/1.4 var(--body);padding:8px 0 10px;outline:none;transition:border-color .2s;border-radius:0}
 .fld textarea{resize:vertical;min-height:84px;font-size:16px}
 .fld input:focus,.fld textarea:focus{border-color:var(--cyan)}
@@ -928,11 +931,22 @@ document.documentElement.classList.add('no-loader');
           <div class="fld"><label for="q-name">Your name</label><input id="q-name" name="name" type="text" autocomplete="name" required placeholder="First and last"></div>
           <div class="fld"><label for="q-company">Business name</label><input id="q-company" name="company" type="text" autocomplete="organization" required placeholder="Your business"></div>
           <div class="fld"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required placeholder="you@business.com"></div>
+          <div class="fld"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(555) 123-4567"></div>
+          <div class="fld"><label for="q-when">Best time to call you</label>
+            <select id="q-when" name="best_time" required>
+              <option value="">Pick a time</option>
+              <option value="Morning (8am to 11am)">Morning, 8am to 11am</option>
+              <option value="Midday (11am to 2pm)">Midday, 11am to 2pm</option>
+              <option value="Afternoon (2pm to 5pm)">Afternoon, 2pm to 5pm</option>
+              <option value="Evening (5pm to 8pm)">Evening, 5pm to 8pm</option>
+              <option value="Any time in business hours">Any time in business hours</option>
+            </select>
+          </div>
           <div class="fld"><label for="q-site">Website <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="q-site" name="website" type="text" autocomplete="url" placeholder="yourbusiness.com"></div>
           <div class="hp" aria-hidden="true"><label for="q-fax">Fax number</label><input id="q-fax" name="fax" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="fld"><label for="q-notes">Anything we should know? <span style="text-transform:none;letter-spacing:0">(optional)</span></label><textarea id="q-notes" name="notes" placeholder="What's bugging you most right now"></textarea></div>
         </div>
-        <p class="hint" style="font-size:13px;color:var(--muted);margin-top:18px">We use your answers to follow up about your business. See our <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--line2)">Privacy Policy</a>.</p>
+        <p class="hint" style="font-size:13px;color:var(--muted);margin-top:18px">We use your answers to follow up about your business by email or phone. See our <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--line2)">Privacy Policy</a>.</p>
       </section>
 
       <section class="qz-step result yes" data-result="yes">
@@ -1524,7 +1538,7 @@ var LXAI=(function(){
     var k=st.dataset.key, t=st.dataset.type;
     if(t==='single'){ if(!ans[k]) return false; if(st.querySelector('[data-other][aria-pressed="true"]')) return !!st.querySelector('[data-other-field] input').value.trim(); return true; }
     if(t==='multi') return (ans[k]||[]).length>0;
-    if(t==='fields'){ var ok=true; st.querySelectorAll('input[required]').forEach(function(inp){ if(!inp.value.trim()||(inp.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim()))) ok=false; }); return ok; }
+    if(t==='fields'){ var ok=true; st.querySelectorAll('input[required],select[required]').forEach(function(inp){ var v=inp.value.trim(); if(!v) ok=false; else if(inp.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) ok=false; else if(inp.type==='tel'&&v.replace(/\D/g,'').length<7) ok=false; }); return ok; }
     return true;
   }
   function refresh(){
@@ -1563,7 +1577,9 @@ var LXAI=(function(){
     var o={qualified:qualified?'yes':'no',submitted_at:new Date().toISOString(),page:location.href.split('#')[0],cf_token:capToken,seconds_on_form:Math.round((Date.now()-openedAt)/1000)};
     Object.keys(ans).forEach(function(k){ o[k]=[].concat(ans[k]).join(', '); });
     var other=form.elements.business_other.value.trim(); if(other) o.business_other=other;
-    ['name','company','email','website','notes'].forEach(function(k){ o[k]=form.elements[k].value.trim(); });
+    ['name','company','email','website','notes','phone','best_time'].forEach(function(k){ if(form.elements[k]) o[k]=form.elements[k].value.trim(); });
+    try{ o.time_zone=Intl.DateTimeFormat().resolvedOptions().timeZone||''; }catch(e){ o.time_zone=''; }
+    o.utc_offset_minutes=String(-new Date().getTimezoneOffset());
     return o;
   }
   function send(qualified){
@@ -1597,13 +1613,13 @@ var LXAI=(function(){
         }
       });
     });
-    st.querySelectorAll('input,textarea').forEach(function(inp){ inp.addEventListener('input',function(){ inp.parentNode.classList.remove('bad'); refresh(); }); });
+    st.querySelectorAll('input,textarea,select').forEach(function(inp){ ['input','change'].forEach(function(ev){ inp.addEventListener(ev,function(){ inp.parentNode.classList.remove('bad'); refresh(); }); }); });
   });
 
   function go(){
     var st=steps[i];
     if(!valid(st)){
-      if(st.dataset.type==='fields'){ st.querySelectorAll('input[required]').forEach(function(inp){ var bad=!inp.value.trim()||(inp.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())); inp.parentNode.classList.toggle('bad',bad); }); err.textContent='Add your name, business name and a valid email to continue.'; }
+      if(st.dataset.type==='fields'){ st.querySelectorAll('input[required],select[required]').forEach(function(inp){ var v=inp.value.trim(); var bad=!v||(inp.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))||(inp.type==='tel'&&v.replace(/\D/g,'').length<7); inp.parentNode.classList.toggle('bad',bad); }); err.textContent='We need your name, business, email, phone and the best time to call.'; }
       else err.textContent='Pick an answer to keep going.';
       return;
     }
