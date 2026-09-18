@@ -1,24 +1,34 @@
 ---
 layout: page
-title: Notes — Level X
-description: Small essays from Level X on calm technology, building apps for families, and what we're learning along the way.
+title: Blog
+description: "Practical, sourced writing for business owners on where customers get lost — response time, booking forms, missed calls, no-shows, local search and AI. No invented statistics."
 permalink: /blog/
+faq:
+  - q: "What does Level X write about?"
+    a: "Where small businesses lose customers between interest and a booked job: lead response time, booking form friction, missed phone calls, appointment no-shows, Google Business Profile visibility, and getting recommended by AI assistants."
+  - q: "Are the statistics in these posts sourced?"
+    a: "Yes. Every figure links to the original study, filing or documentation, and posts say when a number is vendor-funded, dated or based on a single survey. Widely repeated statistics that cannot be traced to a real source are deliberately left out."
 ---
-<section class="section" style="border-top:0; padding-top:72px;">
+<header class="phead reveal">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Notes</p>
-      <h2>Notes from the studio.</h2>
-      <p>Small essays on calm technology, building for families, and what we're learning along the way.</p>
-    </div>
-    <div class="post-list reveal">
-      {% for post in site.posts %}
-      <a class="post-row" href="{{ post.url | relative_url }}">
-        <span class="pr-title">{{ post.title }}</span>
-        <span class="pr-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        {% if post.description %}<span class="pr-excerpt">{{ post.description }}</span>{% endif %}
-      </a>
-      {% endfor %}
-    </div>
+    <p class="eyebrow">Blog</p>
+    <h1>Where customers actually get lost.</h1>
+    <p class="lede">Practical writing for business owners on response time, booking forms, missed calls, no-shows, local search and AI. Every number is sourced, and the ones that circulate without a source are named as such.</p>
   </div>
-</section>
+</header>
+
+<div class="wrap">
+  <div class="post-list">
+    {% for post in site.posts %}
+    <a class="post-row reveal" href="{{ post.url | relative_url }}">
+      <span class="pr-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        {%- if post.tags.size > 0 %} &middot; {{ post.tags | join: " / " }}{% endif -%}
+      </span>
+      <span class="pr-title">{{ post.title }}</span>
+      {% if post.description %}<span class="pr-excerpt">{{ post.description }}</span>{% endif %}
+      <span class="pr-more">Read &rarr;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>

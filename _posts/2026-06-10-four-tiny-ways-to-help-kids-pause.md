@@ -28,4 +28,4 @@ The hardest time to learn a new skill is mid-meltdown. So practice the pause whe
 
 > The goal was never a perfectly calm child. It's a child who knows, somewhere in their body, that the storm passes — and that someone will sit with them until it does.
 
-That's the whole idea behind **Pausely**: not another thing demanding attention, but a small, shared moment of calm you can reach for together. If that resonates, [say hello](/#contact) — we'd love to hear how your family handles the big-feeling moments.
+That's the whole idea behind **Pausely**: not another thing demanding attention, but a small, shared moment of calm you can reach for together. If that resonates, [say hello](/#talk) — we'd love to hear how your family handles the big-feeling moments.

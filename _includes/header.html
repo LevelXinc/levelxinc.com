@@ -1,14 +1,17 @@
-<header id="hdr">
-  <div class="wrap nav">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Level X home">
-      <img class="mark" src="{{ '/assets/img/logo-mark.svg' | relative_url }}" alt="" width="30" height="30">
-      <span class="word">level&nbsp;x</span>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top" id="hdr">
+  <div class="wrap">
+    <a class="lockup" href="{{ '/' | relative_url }}" aria-label="Level X home">
+      <svg aria-hidden="true"><use href="#lxmark"/></svg>
+      <span class="wm">LEVEL<span>X</span></span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="{{ '/#apps' | relative_url }}">Apps</a>
-      <a href="{{ '/#studio' | relative_url }}">Studio</a>
-      <a href="{{ '/blog/' | relative_url }}">Notes</a>
-      <a class="nav-cta" href="{{ '/' | relative_url }}#contact">Get in touch</a>
+    <nav class="links" aria-label="Main">
+      <a href="{{ '/#path' | relative_url }}">What we fix</a>
+      <a href="{{ '/#leak-check' | relative_url }}">Free AI check</a>
+      <a href="{{ '/#how' | relative_url }}">How we work</a>
+      <a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/apps.html' | relative_url }}">Apps</a>
+      <a class="navbtn" href="{{ '/#talk' | relative_url }}">Book a call</a>
     </nav>
   </div>
 </header>

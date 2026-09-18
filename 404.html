@@ -1,12 +1,14 @@
 ---
-layout: default
-title: Page not found — Level X
+layout: page
+title: Page not found
+description: "That page does not exist. Try the blog or the homepage."
+permalink: /404.html
+sitemap: false
 ---
-<section class="section" style="border-top:0; text-align:center; padding:120px 0;">
+<header class="phead reveal">
   <div class="wrap">
-    <img src="{{ '/assets/img/logo-mark.svg' | relative_url }}" alt="" width="56" height="56" style="margin:0 auto 22px;">
-    <h1 style="font-size:30px;">This page wandered off.</h1>
-    <p style="color:var(--muted); margin:10px 0 26px;">Let's get you back home.</p>
-    <a class="btn btn-primary" href="{{ '/' | relative_url }}">&larr; Back to Level X</a>
+    <p class="eyebrow">404</p>
+    <h1>That page isn't here.</h1>
+    <p class="lede">The link is either old or mistyped. The <a href="/blog/" style="color:var(--ink);border-bottom:1px solid var(--line2)">blog</a> and the <a href="/" style="color:var(--ink);border-bottom:1px solid var(--line2)">homepage</a> both still work.</p>
   </div>
-</section>
+</header>

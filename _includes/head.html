@@ -1,28 +1,78 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-<meta name="theme-color" content="#16161D">
+<meta name="theme-color" content="#070A12">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;500;600&family=Sora:wght@800&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
 {% seo %}
 {% feed_meta %}
 
-<!-- Organization (sitewide entity for search + AI) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "{{ site.url }}/#org",
-  "name": "Level X",
-  "alternateName": "Level X Consulting LLC",
-  "url": "{{ site.url }}/",
-  "description": "An independent mobile app studio building calm, careful apps for kids and families.",
-  "logo": "{{ site.url }}/assets/img/logo-mark.svg",
-  "sameAs": ["https://levelxinc.github.io/"],
-  "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "url": "{{ site.url }}/#contact" }
+  "@graph": [
+    {
+      "@type": ["Organization","ProfessionalService"],
+      "@id": "{{ site.url }}/#org",
+      "name": "Level X",
+      "legalName": "Level X Consulting LLC",
+      "url": "{{ site.url }}/",
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "logo": { "@type": "ImageObject", "url": "{{ site.url }}/assets/img/logo-mark.svg" },
+      "image": "{{ site.url }}/og-image.png",
+      "email": "info@levelxinc.com",
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "knowsAbout": ["customer journey optimization","lead response time","appointment booking systems","AI automation for small business","local search visibility","CRM automation"],
+      "sameAs": ["https://levelxinc.github.io/"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "info@levelxinc.com",
+        "url": "{{ site.url }}/#talk",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "Level X",
+      "publisher": { "@id": "{{ site.url }}/#org" },
+      "inLanguage": "en"
+    }{% if page.layout == 'post' %},
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ page.url | absolute_url }}#post",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "url": "{{ page.url | absolute_url }}",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" },
+      "wordCount": {{ content | strip_html | number_of_words }},
+      "keywords": {{ page.tags | join: ", " | jsonify }},
+      "author": { "@id": "{{ site.url }}/#org" },
+      "publisher": { "@id": "{{ site.url }}/#org" },
+      "isPartOf": { "@id": "{{ site.url }}/#website" }
+    }{% endif %}{% if page.url == '/blog/' %},
+    {
+      "@type": "Blog",
+      "@id": "{{ site.url }}/blog/#blog",
+      "url": "{{ site.url }}/blog/",
+      "name": "The Level X blog",
+      "description": {{ page.description | strip_newlines | strip | jsonify }},
+      "publisher": { "@id": "{{ site.url }}/#org" },
+      "blogPost": [{% for post in site.posts %}{ "@type": "BlogPosting", "@id": "{{ post.url | absolute_url }}#post", "headline": {{ post.title | jsonify }}, "url": "{{ post.url | absolute_url }}", "datePublished": "{{ post.date | date_to_xmlschema }}" }{% unless forloop.last %},{% endunless %}{% endfor %}]
+    }{% endif %}{% if page.faq %},
+    {
+      "@type": "FAQPage",
+      "@id": "{{ page.url | absolute_url }}#faq",
+      "mainEntity": [{% for f in page.faq %}{ "@type": "Question", "name": {{ f.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | jsonify }} } }{% unless forloop.last %},{% endunless %}{% endfor %}]
+    }{% endif %}
+  ]
 }
 </script>

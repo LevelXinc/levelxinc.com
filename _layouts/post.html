@@ -2,28 +2,25 @@
 layout: default
 ---
 <article class="post wrap">
-  <div class="post-head reveal">
-    <p class="eyebrow">{{ page.date | date: "%B %-d, %Y" }}{% if page.tags.size > 0 %} &middot; {{ page.tags | join: " / " }}{% endif %}</p>
+  <header class="post-head reveal">
+    <p class="eyebrow">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {%- if page.tags.size > 0 %} &middot; {{ page.tags | join: " / " }}{% endif -%}
+    </p>
     <h1>{{ page.title }}</h1>
-  </div>
+    {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+    <div class="rule"></div>
+  </header>
+
   <div class="prose reveal">
     {{ content }}
   </div>
-  <div class="post-foot reveal">
-    <a href="{{ '/blog/' | relative_url }}">&larr; Back to the notes</a>
-  </div>
+
+  <aside class="post-cta reveal">
+    <h2>Want us to find the leak in your own customer path?</h2>
+    <p>Run the free AI check on your website, or book a call and we will walk it with you.</p>
+    <a class="btn" href="{{ '/#leak-check' | relative_url }}">Run the free check</a>
+  </aside>
+
+  <p class="post-foot reveal"><a href="{{ '/blog/' | relative_url }}">&larr; All posts</a></p>
 </article>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {{ page.title | jsonify }},
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
-  "url": "{{ page.url | absolute_url }}",
-  "mainEntityOfPage": "{{ page.url | absolute_url }}",
-  "author": { "@type": "Organization", "name": "Level X" },
-  "publisher": { "@id": "{{ site.url }}/#org", "@type": "Organization", "name": "Level X", "logo": { "@type": "ImageObject", "url": "{{ site.url }}/assets/img/logo-mark.svg" } }
-}
-</script>

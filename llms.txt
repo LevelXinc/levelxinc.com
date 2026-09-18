@@ -1,33 +1,52 @@
 # Level X
 
-> Level X is a small independent mobile app studio building calm, careful apps
-> for kids and families. Operated as Level X Consulting LLC.
+> Level X (legal name: Level X Consulting LLC) finds where a business loses
+> customers between interest and a booked job, then fixes that path with
+> practical systems and AI automation. Level X also builds its own apps.
+> Serving businesses across the United States, remotely.
 
-Contact: https://levelxinc.com/#contact (contact form)
 Website: https://levelxinc.com
+Contact: info@levelxinc.com
+Blog: https://levelxinc.com/blog/
+
+Note: this file exists as a plain-English summary of the business. Google has
+stated that Google Search ignores llms.txt files. We do not present it as an
+AI-visibility tactic.
+
+## What Level X does
+
+- Customer path audits: mapping every step from first contact to booked job and
+  identifying where people drop out (response time, forms, phone, follow-up,
+  scheduling, no-shows).
+- Fix sprints: a fixed-scope paid engagement that implements the fixes —
+  intake and booking flows, automated routing and follow-up, reminders,
+  CRM setup, reporting.
+- AI automation built on n8n and large language models: lead qualification,
+  follow-up drafting, inbound triage, call summaries. Built with disclosure,
+  rate limits and human handoff, not as a replacement for a person.
+- A free AI-powered website check that reviews a site's customer path and
+  reports likely leaks. One free check per website.
+
+## Who it is for
+
+Service and retail businesses in the United States that get inquiries and want
+more of them to turn into booked, paid work. Best fit for owners willing to run
+a paid, fixed-scope sprint rather than an open-ended retainer.
 
 ## Apps
 
-- Pausely: A mindfulness app for kids and families offering short, guided
-  moments to pause, breathe, and reset together. Launching on Google Play.
-  Category: mindfulness & wellness. Family-friendly, ages 4+.
-- Prevail (in development): Gentle, forgiving habit-building. Category:
-  habits & productivity.
-- OffMyMind (in development): A calm space for couples to stay connected.
-  Category: relationships & connection.
+- Pausely — a mindfulness app for kids and families. Live on Google Play.
+- Prevail (in development) — gentle habit building.
+- OffMyMind (in development) — a calm space for couples to stay connected.
 
-## How Level X works
+## Editorial standard for the Level X blog
 
-- Independent studio, built and run solo.
-- Privacy-first: follows Google Play Families and COPPA guidance. No data sold,
-  no advertising aimed at children, no manipulative engagement patterns.
-- Every app starts from a real moment in family life and aims to make it calmer.
-
-## Writing
-
-- The Level X blog publishes short essays on calm technology and building for
-  families: https://levelxinc.com/blog/
+Every statistic links to its original source. Posts state when a figure is
+vendor-funded, dated, or drawn from a single survey. Widely circulated
+statistics that cannot be traced to a real study are deliberately excluded and
+sometimes named as unsourced.
 
 ## Policies
 
-- Privacy policy and other policies: https://levelxinc.github.io/
+- Privacy policy: https://levelxinc.com/privacy.html
+- Terms: https://levelxinc.github.io/terms.html
