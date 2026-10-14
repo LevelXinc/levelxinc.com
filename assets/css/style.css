@@ -1,12 +1,12 @@
 /* Level X — blog + pages. Shares the tokens of the main site. */
 :root{
   --bg:#070A12; --bg2:#0D1220; --panel:#111829; --line:#1F2940; --line2:#2C3854;
-  --ink:#EEF2F8; --soft:#AEB8C8; --muted:#7A879C;
+  --ink:#EEF2F8; --soft:#C3CBD8; --muted:#919DB2;
   --blue:#3B6DF0; --sky:#0EA5E9; --cyan:#22D3EE; --leak:#FF6A2B; --ok:#4ADE80;
   --grad:linear-gradient(100deg,#1D4ED8,#0EA5E9 45%,#22D3EE);
-  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --body:"Public Sans",system-ui,sans-serif;
-  --label:"IBM Plex Mono",ui-monospace,monospace;
+  --display:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif;
+  --body:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif;
+  --label:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif; --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
   --logo:"Sora",system-ui,sans-serif;
   color-scheme:dark;
 }
@@ -15,7 +15,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--soft);font:16px/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;height:auto}
-h1,h2,h3,h4{font-family:var(--display);color:var(--ink);margin:0;letter-spacing:-.02em;text-wrap:balance;font-stretch:112%}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);margin:0;letter-spacing:-.02em;text-wrap:balance;}
 h1,h2{letter-spacing:-.02em}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:32px}
 @media (max-width:700px){.wrap{padding-inline:20px}}
@@ -40,7 +40,7 @@ main{padding-top:72px}
 
 /* page heads */
 .phead{padding:88px 0 40px;border-bottom:1px solid var(--line)}
-.eyebrow{font:500 11px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+.eyebrow{font:500 12px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
 .phead h1{font-size:clamp(34px,5.4vw,64px);line-height:1.02}
 .phead p.lede{margin:20px 0 0;max-width:62ch;font-size:clamp(16px,1.5vw,19px);color:var(--soft)}
 
@@ -48,11 +48,11 @@ main{padding-top:72px}
 .post-list{padding:8px 0 96px}
 .post-row{display:block;padding:32px 0;border-bottom:1px solid var(--line);transition:border-color .25s}
 .post-row:hover{border-color:var(--line2)}
-.post-row .pr-meta{font:500 11px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.post-row .pr-title{display:block;margin:14px 0 0;font-family:var(--display);font-stretch:112%;color:var(--ink);font-size:clamp(22px,2.6vw,31px);line-height:1.12;letter-spacing:-.02em}
+.post-row .pr-meta{font:500 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.post-row .pr-title{display:block;margin:14px 0 0;font-family:var(--display);color:var(--ink);font-size:clamp(22px,2.6vw,31px);line-height:1.12;letter-spacing:-.02em}
 .post-row:hover .pr-title{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .post-row .pr-excerpt{display:block;margin:12px 0 0;max-width:72ch;color:var(--soft)}
-.post-row .pr-more{display:inline-block;margin-top:16px;font:600 11px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.post-row .pr-more{display:inline-block;margin-top:16px;font:600 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
 
 /* article */
 .post{padding-bottom:96px}
@@ -72,9 +72,9 @@ main{padding-top:72px}
 .prose ul,.prose ol{padding-left:22px}
 .prose li{margin:0 0 10px}
 .prose li::marker{color:var(--muted)}
-.prose blockquote{margin:32px 0;padding:4px 0 4px 22px;border-left:2px solid var(--cyan);color:var(--ink);font-family:var(--display);font-stretch:112%;font-size:clamp(19px,2.1vw,24px);line-height:1.32;letter-spacing:-.01em}
+.prose blockquote{margin:32px 0;padding:4px 0 4px 22px;border-left:2px solid var(--cyan);color:var(--ink);font-family:var(--display);font-size:clamp(19px,2.1vw,24px);line-height:1.32;letter-spacing:-.01em}
 .prose blockquote p{margin:0}
-.prose code{font:500 14px/1.5 var(--label);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:2px 6px;color:var(--ink)}
+.prose code{font:500 14px/1.5 var(--mono);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:2px 6px;color:var(--ink)}
 .prose pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;overflow:auto}
 .prose pre code{background:none;border:0;padding:0}
 .prose hr{border:0;height:1px;background:var(--line);margin:48px 0}

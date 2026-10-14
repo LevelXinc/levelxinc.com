@@ -23,10 +23,12 @@
 <meta name="twitter:image" content="https://levelxinc.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;500;600&family=Sora:wght@800&display=swap">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap">
 <style>
-:root{--bg:#070A12;--panel:#111829;--line:#1F2940;--line2:#2C3854;--ink:#EEF2F8;--soft:#B6C0CF;--muted:#7A879C;--cyan:#22D3EE;--sky:#0EA5E9;
-  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"Public Sans",system-ui,sans-serif; --label:"IBM Plex Mono",ui-monospace,monospace; --logo:"Sora",system-ui,sans-serif;color-scheme:dark}
+:root{--bg:#070A12;--panel:#111829;--line:#1F2940;--line2:#2C3854;--ink:#EEF2F8;--soft:#C3CBD8;--muted:#919DB2;--cyan:#22D3EE;--sky:#0EA5E9;
+  --display:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif; --body:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif; --label:"Satoshi","Helvetica Neue",Arial,system-ui,sans-serif; --mono:ui-monospace,SFMono-Regular,Menlo,monospace; --logo:"Sora",system-ui,sans-serif;color-scheme:dark}
 *{box-sizing:border-box}
 html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--soft);font:16.5px/1.7 var(--body);-webkit-font-smoothing:antialiased;padding-inline:24px}
@@ -46,7 +48,7 @@ main{display:grid;grid-template-columns:220px minmax(0,1fr);gap:64px;padding-blo
 @media (max-width:860px){main{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:48px 72px}}
 .label{font:600 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 h1,h2,h3{font-family:var(--display);color:var(--ink);letter-spacing:-.02em;text-wrap:balance;margin:0}
-h1{font-size:clamp(40px,6vw,72px);line-height:.98;font-weight:800;letter-spacing:-.04em;margin-top:16px}
+h1{font-size:clamp(40px,6vw,72px);line-height:.98;font-weight:900;letter-spacing:-.035em;margin-top:16px}
 .intro{margin-top:22px;font-size:18px;max-width:60ch;color:var(--soft)}
 .meta{margin-top:18px;font:500 13px/1.5 var(--label);color:var(--muted);letter-spacing:.04em}
 nav.toc{position:sticky;top:24px;align-self:start;font-size:14px}
@@ -67,7 +69,7 @@ strong{color:var(--ink);font-weight:600}
 .tbl{overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:12px}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font:600 11.5px/1.4 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+th{font:600 12px/1.4 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
 tr:last-child td{border-bottom:0}
 td:first-child{color:var(--ink);white-space:nowrap}
 .note{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:15px}
@@ -80,12 +82,12 @@ footer a:hover{color:var(--ink)}
 .hero-a p{margin-top:20px;font-size:18px;max-width:56ch}
 .apps{list-style:none;margin:0;padding:0}
 .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:28px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line)}
-.app h2{font-size:clamp(30px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.app h2{font-size:clamp(30px,4vw,54px);font-weight:900;letter-spacing:-.035em;line-height:1}
 .app h2 a{border:0;color:var(--ink)}
 .app h2 a:hover{color:var(--cyan)}
 .tech{display:block;font:500 12px/1.4 var(--label);color:var(--muted);margin-top:8px;letter-spacing:.06em}
 .app p{margin:0;font-size:16px}
-.chip{font:600 11.5px/1 var(--label);letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.chip{font:600 12px/1 var(--label);letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
 .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .chip.live{color:#4ADE80;border-color:#1f4a33}
 .chip.test{color:var(--sky);border-color:#16405a}
@@ -97,7 +99,6 @@ footer a:hover{color:var(--ink)}
 main.single{display:block;padding-block:0 96px}
 @media (max-width:760px){.app{grid-template-columns:1fr auto;gap:10px 16px}.app p{grid-column:1/-1}}
 
-h1,h2,h3{font-stretch:112%}
 h1,h2{letter-spacing:-.02em!important}
 </style>
 </head>
